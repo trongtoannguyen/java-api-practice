@@ -1,5 +1,3 @@
-package org.example;
-
 import java.io.*;
 import java.net.*;
 
@@ -20,11 +18,9 @@ public class EchoServer {
         System.out.println("Server is running on port " + portNumber);
 
         try (
-                ServerSocket serverSocket =
-                        new ServerSocket(Integer.parseInt(args[0]));
+                ServerSocket serverSocket = new ServerSocket(portNumber);
                 Socket clientSocket = serverSocket.accept();
-                PrintWriter out =
-                        new PrintWriter(clientSocket.getOutputStream(), true);
+                PrintWriter out = new PrintWriter(clientSocket.getOutputStream(), true);
                 BufferedReader in = new BufferedReader(
                         new InputStreamReader(clientSocket.getInputStream()));
         ) {
